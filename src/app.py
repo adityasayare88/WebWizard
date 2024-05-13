@@ -2,6 +2,11 @@ import streamlit as st
 from langchain_core.messages import AIMessage, HumanMessage
 from langchain_community.document_loaders import WebBaseLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_community.vectorstores import Chroma
+from langchain_openai import OpenAIEmbeddings
+
+
+
 def get_response(user_input):
     return "I don't know"
 
@@ -11,7 +16,9 @@ def get_vectorstore_from_url(url):
     text_splitter = RecursiveCharacterTextSplitter()
     document_chunks = text_splitter.split(document)
 
-    return document_chunks
+    vector_store=Chroma.from_documents(document_chunks, OpenAIEmbeddings())
+
+    return vector_store
 
 
 #app titles and about
@@ -32,8 +39,6 @@ if website_url is None or website_url == "":
     st.info("Please enter a website URL ")
 else:
     document_chunks = get_vectorstore_from_url(website_url)
-    with st.sidebar:
-        st.write(document_chunks)
 
     #user input code
     user_query = st.chat_input("Type your prompt here.....")  # Capture user input here
