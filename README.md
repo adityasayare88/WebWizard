@@ -15,6 +15,8 @@ With an intuitive conversational interface, WebWizard acts as a virtual guide, a
 
 
 
+
+
 Here are the key features of the WebWizard project in short bullet points:
 
 - **Natural Language Interaction**: Engage with websites through intuitive conversational queries using natural language processing powered by Langchain and OpenAI's language models.
@@ -28,7 +30,7 @@ Here are the key features of the WebWizard project in short bullet points:
 - **Web Scraping and Data Extraction**: Leveraging BeautifulSoup4, WebWizard can efficiently scrape and extract data from websites for enhanced information retrieval.
 ## Optimizations
 
-**Future Scope**: To add functionality of chatting with multiple pdfs.
+**Future Scope**: To add functionality of chatting with multiple pdf.
 
 ## Run Locally
 
@@ -47,7 +49,7 @@ Go to the project directory
 Install dependencies
 
 ```bash
- pip install streamlit langchain lanchain-openai beautifulsoup4 python-dotenv chromadb
+ pip install streamlit langchain langchain-openai beautifulSoup4 python-dotenv chromaDB
 ```
 
 Start the server
