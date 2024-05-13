@@ -3,14 +3,17 @@ from langchain_core.messages import AIMessage, HumanMessage
 from langchain_community.document_loaders import WebBaseLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
-from langchain_openai import OpenAIEmbeddings
+from langchain_openai import OpenAIEmbeddings, ChatOpenAI
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+from dotenv import load_dotenv
 
-
+load_dotenv()
 
 def get_response(user_input):
     return "I don't know"
 
 def get_vectorstore_from_url(url):
+
     loader = WebBaseLoader(url)
     document = loader.load()
     text_splitter = RecursiveCharacterTextSplitter()
@@ -20,6 +23,13 @@ def get_vectorstore_from_url(url):
 
     return vector_store
 
+def get_context_retriever_chain(vector_store):
+    llm=ChatOpenAI()
+    retriever = vector_store.as_retriever()
+    prompt = ChatPromptTemplate.from_messages([
+        MessagesPlaceholder(variable_name="chat_history"),
+        
+    ])
 
 #app titles and about
 st.set_page_config(page_title="WebWizard", page_icon="🤖")
