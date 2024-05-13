@@ -5,6 +5,11 @@ from langchain_community.document_loaders import WebBaseLoader
 def get_response(user_input):
     return "I don't know"
 
+def get_vectorstore_from_url(url):
+    loader = WebBaseLoader(url)
+    documents = loader.load()
+    return documents
+
 
 #app titles and about
 st.set_page_config(page_title="WebWizard", page_icon="🤖")
@@ -23,6 +28,10 @@ with st.sidebar:
 if website_url is None or website_url == "":
     st.info("Please enter a website URL ")
 else:
+    documents = get_vectorstore_from_url(website_url)
+    with st.sidebar:
+        st.write(documents)
+
     #user input code
     user_query = st.chat_input("Type your prompt here.....")  # Capture user input here
     if user_query is not None and user_query != "":
