@@ -12,7 +12,7 @@ With an intuitive conversational interface, WebWizard acts as a virtual guide, a
 - [Python Community](https://www.python.org/doc/) - For the numerous libraries, resources, and support.
 ## Screenshots
 
-
+![RAG Diagram](https://github.com/adityasayare88/WebWizard/blob/ed130e79c5f4a8db0c7961396260f337357155e3/docs/rag%20OG%20upload%20this.png)
 
 
 Here are the key features of the WebWizard project in short bullet points:
