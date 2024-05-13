@@ -15,8 +15,6 @@ With an intuitive conversational interface, WebWizard acts as a virtual guide, a
 
 
 
-
-
 Here are the key features of the WebWizard project in short bullet points:
 
 - **Natural Language Interaction**: Engage with websites through intuitive conversational queries using natural language processing powered by Langchain and OpenAI's language models.
